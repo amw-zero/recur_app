@@ -1,0 +1,45 @@
+type Weekday:
+  | Monday
+  | Tuesday
+  | Wednesday
+  | Thursday
+  | Friday 
+  | Saturday
+  | Sunday
+end
+
+type RecurrenceRule:
+  | Monthly(Numeric)
+  | Weekly(Weekday)
+end
+
+schema RecurringTransaction:
+  id: Numeric
+  amount: Numeric
+  name: String
+end
+
+schema CreateRecurringTransaction:
+  amount: Numeric
+  name: String
+end
+
+schema Budget:
+  recurring_transactions: [RecurringTransaction]
+  
+  def create_recurring_transaction(rtc: CreateRecurringTransaction)
+    recurring_transactions.create!(rtc)
+  end
+
+  def delete_recurring_transaction(rt: RecurringTransaction)
+    recurring_transactions.delete!(rt)
+  end
+
+  def update_recurring_transaction(rt: RecurringTransaction)
+    recurring_transactions.update!(rt)
+  end
+
+  def view_recurring_transactions()
+    recurring_transactions.read!()
+  end
+end
