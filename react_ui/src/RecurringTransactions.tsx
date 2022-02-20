@@ -7,9 +7,8 @@ const RecurringTransactionRow = observer(({ recurringTransaction }: { recurringT
     <tr>
       <th>{recurringTransaction.name}</th>
       <td>{recurringTransaction.amount}</td>
-      <td>{recurringTransaction.recurrence_rule}</td>
       <td>
-        <button className="button is-danger" onClick={() => client.delete_recurring_transactionClient(recurringTransaction)}>Delete</button>
+        <button className="button is-danger" onClick={() => client.delete_recurring_transaction(recurringTransaction)}>Delete</button>
       </td>
     </tr>
   );
