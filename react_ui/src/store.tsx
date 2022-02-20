@@ -1,5 +1,5 @@
 import React from 'react';
-import { Application as Client } from "./generated-client";
+import { Budget as Client } from "./generated-client";
 import { makeAutoObservable } from 'mobx';
 
 export const client = new Client((c: Client) => makeAutoObservable(c));
