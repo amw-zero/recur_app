@@ -7,7 +7,7 @@ import { useStore } from './store';
 const App = () => {
   const client = useStore();
   useEffect(() => {
-    client.view_recurring_transactionsClient();
+    client.view_recurring_transactions();
   }, []);
   
   return (
