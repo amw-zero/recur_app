@@ -15,11 +15,11 @@ export const Navbar = () => (
         <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
             <a className="navbar-item">
-                Home
+                Budget
             </a>
 
             <a className="navbar-item">
-                Documentation
+                Schedule
             </a>
 
             <div className="navbar-item has-dropdown is-hoverable">
