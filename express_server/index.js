@@ -21,11 +21,4 @@ defineEndpoints(app, db);
 
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`)
-})
-
-// db.serialize(() => {
-//     db.run("INSERT INTO recurring_transactions (name, amount) VALUES (?, ?)", ['testParams', 15.00]);
-//     db.all("SELECT * FROM recurring_transactions", (_, row) => {
-//         console.log({row});
-//     });
-// });
+});
