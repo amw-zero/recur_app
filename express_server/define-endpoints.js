@@ -1,3 +1,12 @@
+function expand(rt) {
+  return { name: rt.name };
+}
+
+function filter(ids) {
+  new Filter(ids);
+
+}
+
 function defineEndpoints(app, db) {
   app.post("/recurring_transactions", (req, res) => {
  let data = req.body;
@@ -15,7 +24,13 @@ app.put("/recurring_transactions/:id", (req, res) => {
  res.send({  }) });
 app.get("/recurring_transactions", (req, res) => {
  db.all("SELECT * FROM recurring_transactions", (_, rows) => {
- res.send(rows) }) });
+ res.send(rows);
+ }) });
+app.get("/scheduled_transactions", (req, res) => {
+ db.all("SELECT * FROM recurring_transactions", (_, rts) => {
+ let scheduled_transactions = rts.map(expand);
+res.send(scheduled_transactions);
+ }) });
 
 }
 

@@ -15,7 +15,7 @@ const RecurringTransactionRow = observer(({ recurringTransaction }: { recurringT
 });
 
 export const RecurringTransactions = observer(() => {
-  const client = useStore();
+  const { client } = useStore();
 
   return (
     <table className="table">
