@@ -1,14 +1,15 @@
-function expand(rt: RecurringTransaction) {
-  new ScheduledTransaction(rt.name);
+function expand(rt: any) {
+  return { name: rt.name };
+//  new ScheduledTransaction(rt.name);
 
 }
 
-function filter(ids: number[]) {
-  new Filter(ids);
+// function filter(ids: number[]) {
+//   new Filter(ids);
 
-}
+// }
 
-function defineEndpoints(app, db) {
+export function defineEndpoints(app, db) {
   app.post("/recurring_transactions", (req, res) => {
  let data = req.body;
 db.serialize(() => {
