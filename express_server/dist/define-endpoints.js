@@ -3,11 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.defineEndpoints = void 0;
 function expand(rt) {
     return { name: rt.name };
-    //  new ScheduledTransaction(rt.name);
 }
-// function filter(ids: number[]) {
-//   new Filter(ids);
-// }
 function defineEndpoints(app, db) {
     app.post("/recurring_transactions", (req, res) => {
         let data = req.body;

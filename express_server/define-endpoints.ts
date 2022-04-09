@@ -1,13 +1,15 @@
-function expand(rt: any) {
+interface RecurringTransaction { id: number;amount: number;name: string }
+
+interface CreateRecurringTransaction { amount: number;name: string }
+
+interface ScheduledTransaction { name: string }
+
+interface Filter { ids: number[] }
+
+function expand(rt: RecurringTransaction) {
   return { name: rt.name };
-//  new ScheduledTransaction(rt.name);
 
 }
-
-// function filter(ids: number[]) {
-//   new Filter(ids);
-
-// }
 
 export function defineEndpoints(app, db) {
   app.post("/recurring_transactions", (req, res) => {
