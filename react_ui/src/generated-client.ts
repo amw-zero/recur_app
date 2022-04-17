@@ -9,7 +9,9 @@ export class Budget {
 recurring_transactions: RecurringTransaction[] = [];
 async create_recurring_transaction(rtc: CreateRecurringTransaction) {
   let resp = await fetch("http://localhost:3000/recurring_transactions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(rtc) });
-this.recurring_transactions.push(await resp.json());
+let created: RecurringTransaction = await resp.json();
+this.recurring_transactions.push(created);
+return created;
  }
 
 async delete_recurring_transaction(rt: RecurringTransaction) {

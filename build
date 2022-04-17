@@ -2,6 +2,4 @@
 
 sligh --client-output ./react_ui/src/generated-client.ts \
       --server-output ./express_server/define-endpoints.ts \
-      --model-output ./model.ts \
-      --state-transition-properties-output ./state-transition-properties.ts \
       derived.lang
