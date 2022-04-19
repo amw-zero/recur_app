@@ -6,7 +6,7 @@ import { useStore } from "./store";
 type FormValues = { amount: number, name: string, recurrence_rule: string };
 
 export const RecurringTransactionForm = () => {
-  const client = useStore();
+  const { client } = useStore();
   const handleSubmit = (values: FormValues, { setSubmitting }: { setSubmitting: (s: boolean) => void }) => {
     client.create_recurring_transaction(values);
     setSubmitting(false);

@@ -1,4 +1,17 @@
-function defineEndpoints(app, db) {
+interface RecurringTransaction { id: number;amount: number;name: string }
+
+interface CreateRecurringTransaction { amount: number;name: string }
+
+interface ScheduledTransaction { name: string }
+
+interface Filter { ids: number[] }
+
+function expand(rt: RecurringTransaction) {
+  return { name: rt.name };
+
+}
+
+export function defineEndpoints(app, db) {
   app.post("/recurring_transactions", (req, res) => {
  let data = req.body;
 db.serialize(() => {
@@ -15,8 +28,12 @@ app.put("/recurring_transactions/:id", (req, res) => {
  res.send({  }) });
 app.get("/recurring_transactions", (req, res) => {
  db.all("SELECT * FROM recurring_transactions", (_, rows) => {
- res.send(rows) }) });
+ res.send(rows);
+ }) });
+app.get("/scheduled_transactions", (req, res) => {
+ db.all("SELECT * FROM recurring_transactions", (_, rts) => {
+ let scheduled_transactions = rts.map(expand);
+res.send(scheduled_transactions);
+ }) });
 
 }
-
-module.exports = defineEndpoints;

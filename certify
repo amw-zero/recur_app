@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+pushd .
+
+cd express_server
+npm run build
+
+popd
+
+pushd .
+
+cd certification
+if ! test -f "node_modules"; then
+    npm ci
+fi
+
+npm test

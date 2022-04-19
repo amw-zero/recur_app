@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ClientContext, client } from './store';
+import { ClientContext, client, schedule } from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ClientContext.Provider value={client}>
+    <ClientContext.Provider value={{client, schedule}}>
       <App/>
     </ClientContext.Provider>
   </React.StrictMode>,
