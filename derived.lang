@@ -33,10 +33,6 @@ schema ScheduledTransaction:
   name: StringIdentifier
 end
 
-schema Filter:
-  ids: [Int]
-end
-
 def expand(rt: RecurringTransaction) -> ScheduledTransaction
   ScheduledTransaction.new(rt.name)
 end
